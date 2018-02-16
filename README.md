@@ -60,13 +60,13 @@ We are excited about renewable energy and help reducing the world’s carbon foo
 
 We have a great team of software developers; some of us are building a scalable and secure cloud, others enjoy programming IoT devices and make them do magic tricks. We also have a team of data scientists who design machine learning software that lets our service make autonomous decisions about storing, releasing and trading energy. 
 
-Do you have a story that we should hear, and you feel what we do here at Stem is something that will make you passionate too? We are looking forward to meet you and learn if there is an opportunity for you to intern at Stem!
+Do you have a story that we should hear? Do you feel what we do here at Stem is something that will make you passionate too? If so, we look forward to meeting you and finding out if there is an opportunity for you to intern at Stem!
 
 ## About Stem
 
-Stem creates innovative technology services that transform the way energy is distributed and consumed. Stem’s mission is to build and operate the largest digitally-connected energy storage network for our customers. 
+Stem creates innovative technology services that transforms the way energy is distributed and consumed. Stem’s mission is to build and operate the largest digitally-connected energy storage network for our customers. 
 
-Our world-class analytics will optimize the value of customer’s energy assets and facilitate their participation in energy markets, yielding economic and societal benefits while decarbonizing the grid. 
+Our world-class analytics will optimize the value of customers' energy assets and facilitate their participation in energy markets, yielding economic and societal benefits while decarbonizing the grid. 
 
 We create automated, price-responsive systems that enable C&I customers to predict and control electricity costs and capture savings in a rapidly-evolving utility landscape. 
 
