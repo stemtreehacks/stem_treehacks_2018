@@ -32,7 +32,7 @@ There is additional system data you are free to use or disregard as you see fit:
 
 # How winners will be determined
 
-We will be judging your team's model and algorithm based on your results for team's result for January 2018. 
+We will be judging your team's model and algorithm based on your results for January 2018. 
 
 Submit the following by making a pull request against our repo:
 * your team's forecast for January 2018 as a CSV. It should be formatted in the same way as the data we have provided.
