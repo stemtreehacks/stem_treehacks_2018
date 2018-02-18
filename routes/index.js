@@ -66,7 +66,7 @@ router.post('/', function(req, res, next) {
       if (csv_path.includes('pred1.csv')) {
           threshold = 362;
       } else if (csv_path.includes('pred2.csv')) {
-          threshold = 300; // TODO
+          threshold = 5691;
       }
       display_data(csv_path);
       /*
