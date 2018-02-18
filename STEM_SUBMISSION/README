@@ -1,0 +1,8 @@
+Hello!
+
+This is our data for our Treehacks 2018 submission to the Stem challenge. jan-2018-forecast.csv contains our forcasted model for Jan 2018 power usage. We computed that the battery should be discharged at when the charge goes above 365.2kWh, which will minimize the time the battery is used, but maximize peak shaving at the same time. This will allow the battery to participate in the "Virtual Power Grid". THIS MODEL IS OUR FINAL SUBMISSION!
+
+We also produced a model forecast based on neural networks. nd_battery contains the forecasting data for that model. We used the same convex optimization technique on that model, and computing a cutoff of 359 kWh. 
+
+"data/pred2.csv" Contains forecasting for additional data that we were given by Mr. Meijer. The cutoff for this model is 5691 kWh  
+
