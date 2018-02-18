@@ -847,8 +847,9 @@ function LineGraph(argsMap) {
 		var mouseX = event.pageX-hoverLineXOffset;
 		var mouseY = event.pageY-hoverLineYOffset;
 
-		//debug("MouseOver graph [" + containerId + "] => x: " + mouseX + " y: " + mouseY + "  height: " + h + " event.clientY: " + event.clientY + " offsetY: " + event.offsetY + " pageY: " + event.pageY + " hoverLineYOffset: " + hoverLineYOffset)
-		if(mouseX >= 0 && mouseX <= w && mouseY >= 0 && mouseY <= h) {
+		debug("MouseOver graph [" + containerId + "] => x: " + mouseX + " y: " + mouseY + "  height: " + h + " event.clientY: " + event.clientY + " offsetY: " + event.offsetY + " pageY: " + event.pageY + " hoverLineYOffset: " + hoverLineYOffset)
+
+		if(mouseX >= 0 && mouseX <= 3000 && mouseY >= 0 && mouseY <= 1000) {
 			// show the hover line
 			hoverLine.classed("hide", false);
 
@@ -919,6 +920,7 @@ function LineGraph(argsMap) {
 	* Display the data values at position X in the legend value labels.
 	*/
 	var displayValueLabelsForPositionX = function(xPosition, withTransition) {
+		debug('WTF ' + xPosition)
 		var animate = false;
 		if(withTransition != undefined) {
 			if(withTransition) {
@@ -929,7 +931,7 @@ function LineGraph(argsMap) {
 		var labelValueWidths = [];
 		graph.selectAll("text.legend.value")
 		.text(function(d, i) {
-            // debug(d + ";" + i)
+            debug(d + ";" + i + ";" + xPosition)
 			var valuesForX = getValueForPositionXFromData(xPosition, i);
 			dateToShow = valuesForX.date;
 			return valuesForX.value;
@@ -993,6 +995,7 @@ function LineGraph(argsMap) {
 	* Set the value labels to whatever the latest data point is.
 	*/
 	var setValueLabelsToLatest = function(withTransition) {
+		debug("w:" + w)
 		displayValueLabelsForPositionX(w, withTransition);
 	}
 
@@ -1028,8 +1031,7 @@ function LineGraph(argsMap) {
 		var roundToNumDecimals = data.rounding[dataSeriesIndex];
 
 		return {value: roundNumber(v, roundToNumDecimals), date: bucketDate};*/
-        // debug(d[xPosition][1])
-		xPosition *= 2
+        debug("FFFF" + xPosition + ";" + d[xPosition][1])
         val = d[xPosition][1] + 0
         return {value: d[xPosition][1], date: new Date(d[xPosition][0])}
 	}
@@ -1124,11 +1126,11 @@ function LineGraph(argsMap) {
 	}
 
 	var error = function(message) {
-		// console.log("ERROR: " + message)
+		console.log("ERROR: " + message)
 	}
 
 	var debug = function(message) {
-		// console.log("DEBUG: " + message)
+		console.log("DEBUG: " + message)
 	}
 
 	/* round a number to X digits: num => the number to round, dec => the number of decimals */
