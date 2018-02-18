@@ -17,7 +17,8 @@
     </div>
     <script>
     var all_labels = <%- JSON.stringify(labels) %>;
-    var all_points = <%- JSON.stringify(points) %>;
+    var all_point1 = <%- JSON.stringify(points1) %>;
+    var all_point2 = <%- JSON.stringify(points2) %>;
     var all_saved  = <%- JSON.stringify(saved)  %>;
     var all_titles = <%- JSON.stringify(titles) %>;
     var all_lines  = <%- JSON.stringify(lines)  %>;
@@ -25,7 +26,7 @@
         var ctx1 = document.getElementById('chart-' + i).getContext('2d');
         var options1 = {
             title: { display: true, text: all_titles[i] },
-            layout: { padding: { bottom: 30 } },
+            layout: { padding: { left: 0, right: 0, bottom: 30 } },
             scales: {
                 xAxes: [{ scaleLabel: { display: true, labelString: 'Time' } }],
                 yAxes: [{ scaleLabel: { display: true, labelString: 'Kilowatts (kW)' } }]
@@ -33,30 +34,44 @@
         };
         if (all_saved.length > 0) { // modify options based on saved
             options1.layout.padding.bottom = 0;
-            options1.layout.padding.left = 9;
-            options1.layout.padding.right = 9;
+            options1.layout.padding.left = 20;
+            options1.layout.padding.right = 8;
             options1.scales.xAxes[0].display = false;
+        }
+        var datasets1 = [{
+            label: 'Energy Consumed',
+            data: all_point1[i],
+            pointRadius: 0,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }];
+        if (all_point2.length > 0) { // modify data based on point2
+            datasets1[0].label = 'Energy Consumed: ARIMA';
+            datasets1.push({
+                label: 'Energy Consumed: Neural Decomposition',
+                data: all_point2[i],
+                pointRadius: 0,
+                backgroundColor: 'rgba(99, 132, 255, 0.2)',
+                borderColor: 'rgba(99, 132, 255, 1)',
+                borderWidth: 1
+            });
+        }
+        if (all_lines.length > 0) { // modify options based on lines
+            datasets1.push({
+                label: 'Battery Activation Threshold',
+                data: all_lines[i],
+                pointRadius: 0,
+                backgroundColor: 'rgba(132, 255, 99, 0)',
+                borderColor: 'rgba(132, 255, 99, 1)',
+                borderWidth: 1
+            });
         }
         var myChart = new Chart(ctx1, {
             type: 'line',
             data: {
                 labels: all_labels[i],
-                datasets: [{
-                    label: 'Energy Consumed',
-                    data: all_points[i],
-                    pointRadius: 0,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Battery Activation Threshold',
-                    data: all_lines[i],
-                    pointRadius: 0,
-                    backgroundColor: 'rgba(99, 132, 255, 0)',
-                    borderColor: 'rgba(99, 132, 255, 1)',
-                    borderWidth: 1
-                }]
+                datasets: datasets1
             },
             options: options1
         });
