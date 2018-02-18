@@ -6,6 +6,8 @@ var data_original = []
 var data_smoothed = []
 var data_24hr = []
 
+var data_forecast = []
+
 var parser = parse({delimiter: ','}, function(err, data){
     for (var i = 0; i < data.length; i++) {
         var d = data[i]
@@ -24,4 +26,20 @@ var parser = parse({delimiter: ','}, function(err, data){
     fs.writeFile('./data.js', JSON.stringify(d))
 });
 
-fs.createReadStream(__dirname+'/january.csv').pipe(parser);
+var parser2 = parse({delimiter: ','}, function(err, data){
+    for (var i = 0; i < data.length; i++) {
+        var d = data[i]
+        data_forecast.push([moment(d[0]).valueOf(), d[1]])
+    }
+
+    var d = {
+        'values': [data_forecast],
+        'names': ['Forecasted Power Consumption'],
+        'colors': ['red']
+    }
+
+    fs.writeFile('./data_forecast.js', JSON.stringify(d))
+});
+
+// fs.createReadStream(__dirname+'/january.csv').pipe(parser);
+fs.createReadStream(__dirname+'/prediction.csv').pipe(parser2);
