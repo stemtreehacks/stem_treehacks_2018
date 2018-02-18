@@ -60,8 +60,8 @@ function LineGraph(argsMap) {
 	this.slideData = function(newData) {
 		// validate data
 		var tempData = processDataMap(newData);
-		debug("Existing startTime: " + data.startTime + "  endTime: " + data.endTime);
-		debug("New startTime: " + tempData.startTime + "  endTime: " + tempData.endTime);
+		// debug("Existing startTime: " + data.startTime + "  endTime: " + data.endTime);
+		// debug("New startTime: " + tempData.startTime + "  endTime: " + tempData.endTime);
 
 		// validate step is the same on each
 		if(tempData.step != newData.step) {
@@ -90,7 +90,7 @@ function LineGraph(argsMap) {
 		// == numElements * step
 		data.startTime = new Date(data.startTime.getTime() + (data.step * numSteps));
 		data.endTime = tempData.endTime;
-		debug("Updated startTime: " + data.startTime + "  endTime: " + data.endTime);
+		// debug("Updated startTime: " + data.startTime + "  endTime: " + data.endTime);
 
 		/*
 		* The following transition implementation was learned from examples at http://bost.ocks.org/mike/path/
@@ -1124,11 +1124,11 @@ function LineGraph(argsMap) {
 	}
 
 	var error = function(message) {
-		console.log("ERROR: " + message)
+		// console.log("ERROR: " + message)
 	}
 
 	var debug = function(message) {
-		console.log("DEBUG: " + message)
+		// console.log("DEBUG: " + message)
 	}
 
 	/* round a number to X digits: num => the number to round, dec => the number of decimals */
