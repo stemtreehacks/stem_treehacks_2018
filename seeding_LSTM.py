@@ -14,7 +14,9 @@ import numpy
 
 # date-time parsing function for loading the dataset
 def parser(x):
-	return pd.datetime.strptime('190'+x, '%Y-%m')
+	for num in x:
+		print(num).rjust(2, '0')
+	return pd.datetime.strptime(x, "%m/%d/%Y")
 
 
 # create a differenced series #differencing is risky for us because the oscillations are not
@@ -115,7 +117,7 @@ def experiment(repeats, series, seed):
 	return error_scores
 
 # load dataset
-series = pd.read_csv('time_series.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+series = pd.read_csv('time_series2.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
 # experiment
 repeats = 30
 results = pd.DataFrame()
