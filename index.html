@@ -50,6 +50,9 @@
                 <a class="nav-link page-scroll" href="#hero-area">Home</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link page-scroll" href="#testimonial">Tech</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link page-scroll" href="#services">Peak Shaving</a>
               </li>
               <li class="nav-item">
@@ -64,9 +67,7 @@
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#pricing">Usage</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link page-scroll" href="#testimonial">Tech</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#forecast">Forecast</a>
               </li>
@@ -119,13 +120,59 @@
     </header>
     <!-- Header Section End -->
 
+    <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-md-12">
+            <div class="touch-slider owl-carousel owl-theme">
+              <div class="testimonial-item">
+                <img src="img/logo1.png" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>In addition to a regular utility charge based upon the amount of energy used, the utility company also charge companies a demand fee, in which the maximum peak or instance of energy usage within each month, is taken and charged for an additional $35/kW. For facilities that use a lot of power over shorter periods of time, this additional fee comprises a significant portion of their electricity bill. Thus, to minimize such an additional fee, it is strategic to store up energy beforehand as much as possible, so that the maximum peak of the month can be shaved down.
+                  <h3>Problem</h3>
+                </div>
+              </div>
+              <div class="testimonial-item">
+                <img src="img/logo2.png" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>Stem provided us with a csv file of the energy usage of a single company in 2017, in the form of timestamps for every 15 minutes of the year and corresponding energy usage in kW. We designed an algorithm that accomplishes this task of minimizing demand charge for a given month. We also took into consideration the idea that perhaps energy cannot be stored for an arbitrarily long amount of time before it is used. We thus also adapted our algorithm to only allow for storage of energy no more than 24 hours before it is used. We made this value a parameter that can be adjusted if this does not accurately reflect real-world constraints.</p>
+                <h3>Gathering Data</h3>
+                </div>
+              </div>
+              <div class="testimonial-item">
+                <img src="img/logo3.png" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                    <p>We designed the peak shaving algorithm ourselves. Here is how it works: Iterate through each data point in a given month. Leave the first energy level where it is for now. Set the current max to be this first energy level. If the second energy level is equal to or less than the current max, then leave it alone and continue. If it is greater than the current max, then start from the beginning and redistribute the amount of energy greater than the current max to the preceding timepoints, while keeping each under the current max. Once done, if there still remains energy to be distributed, distribute among all preceding timepoints evenly and increase the current max accordingly. Repeat until the entire month has been smoothed. We can also enforce a constraint that energy cannot be dissipated in advance more than 24 hours. This means that when we redistribute energy, we do not go to the beginning, we go only 24 hours back. This also means that the current max will need to be updated as we scroll our 24 hour window. According to our approach, it must be true that the current max is the first bar in the window.</p>
+                  <h3>The Algorithm</h3>
+                </div>
+              </div>
+              <div class="testimonial-item">
+                <img src="img/logo4.png" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>Using Machine Learning models, we were able to forecast the site’s energy consumption as well as the behind-the-meter energy storage system. Sites that consume a lot of energy have two main components: energy charges and demand charges.</p>
+                    <h3>Forecasting Demand</h3>
+                </div>
+              </div>
+              <div class="testimonial-item">
+                <img src="img/logo5.png" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>Through storing up energy beforehand as much as possible, we are able to minimize the additional fee of the demand charge. The demand charges can be effectively reduced by peak shaving with energy storage.</p>
+                  <h3>Reducing Demand Charge</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Services Section Start -->
     <section id="services" class="section">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">24 Hour Constrained vs Actual Demand</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">blurb</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">This graph shows our algorithm's output for the 24 hour constrained optimization, the unconstrained optimization, and the actual demand for January.</p>
         </div>
         <div id="graph1" class="aGraph" style="position:relative;width:100%;height:400px;background-color:#FFF"></div>
     	<script>
@@ -141,7 +188,6 @@
           <div class="section-header">
             <h2 class="section-title">Demand Charge Graphs</h2>
             <hr class="lines">
-            <p class="section-subtitle">blurb</p>
           </div>
           <div class="row">
             <div class="col-md-4 col-sm-6">
@@ -289,51 +335,6 @@
         </div>
     </div>
 
-    <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
-      <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col-md-12">
-            <div class="touch-slider owl-carousel owl-theme">
-              <div class="testimonial-item">
-                <img src="img/logo1.png" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>In addition to a regular utility charge based upon the amount of energy used, the utility company also charge companies a demand fee, in which the maximum peak or instance of energy usage within each month, is taken and charged for an additional $35/kW. For facilities that use a lot of power over shorter periods of time, this additional fee comprises a significant portion of their electricity bill. Thus, to minimize such an additional fee, it is strategic to store up energy beforehand as much as possible, so that the maximum peak of the month can be shaved down.
-                  <h3>Problem</h3>
-                </div>
-              </div>
-              <div class="testimonial-item">
-                <img src="img/logo2.png" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>Stem provided us with a csv file of the energy usage of a single company in 2017, in the form of timestamps for every 15 minutes of the year and corresponding energy usage in kW. We designed an algorithm that accomplishes this task of minimizing demand charge for a given month. We also took into consideration the idea that perhaps energy cannot be stored for an arbitrarily long amount of time before it is used. We thus also adapted our algorithm to only allow for storage of energy no more than 24 hours before it is used. We made this value a parameter that can be adjusted if this does not accurately reflect real-world constraints.</p>
-                <h3>Gathering Data</h3>
-                </div>
-              </div>
-              <div class="testimonial-item">
-                <img src="img/logo3.png" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                    <p>We designed the peak shaving algorithm ourselves. Here is how it works: Iterate through each data point in a given month. Leave the first energy level where it is for now. Set the current max to be this first energy level. If the second energy level is equal to or less than the current max, then leave it alone and continue. If it is greater than the current max, then start from the beginning and redistribute the amount of energy greater than the current max to the preceding timepoints, while keeping each under the current max. Once done, if there still remains energy to be distributed, distribute among all preceding timepoints evenly and increase the current max accordingly. Repeat until the entire month has been smoothed. We can also enforce a constraint that energy cannot be dissipated in advance more than 24 hours. This means that when we redistribute energy, we do not go to the beginning, we go only 24 hours back. This also means that the current max will need to be updated as we scroll our 24 hour window. According to our approach, it must be true that the current max is the first bar in the window.</p>
-                  <h3>The Algorithm</h3>
-                </div>
-              </div>
-              <div class="testimonial-item">
-                <img src="img/logo4.png" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>Using Machine Learning models, we were able to forecast the site’s energy consumption as well as the behind-the-meter energy storage system. Sites that consume a lot of energy have two main components: energy charges and demand charges.</p>
-                    <h3>Forecasting Demand</h3>
-                </div>
-              </div>
-              <div class="testimonial-item">
-                <img src="img/logo5.png" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>Through storing up energy beforehand as much as possible, we are able to minimize the additional fee of the demand charge. The demand charges can be effectively reduced by peak shaving with energy storage.</p>
-                  <h3>Reducing Demand Charge</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- End Pricing Table Section -->
 
     <section id="forecast" class="section">
@@ -341,7 +342,7 @@
         <div class="section-header">
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Forecasted Power Consumption for January 2018</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">blurb</p>
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Without any optimization, the demand would have cost <b>$12396.83473</b>. With unconstrained peak shaving, we can achieve a cost of <b>$830.12</b>, but a more reasonable number is <b>$2052.93</b> (24 hour window of saving energy). This gives us savings of <b>$10000</b>!</p>
         </div>
         <div id="graph3" class="aGraph" style="position:relative;width:100%;height:400px;background-color:#FFF"></div>
         <script>

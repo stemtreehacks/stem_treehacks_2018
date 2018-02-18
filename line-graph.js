@@ -1029,6 +1029,7 @@ function LineGraph(argsMap) {
 
 		return {value: roundNumber(v, roundToNumDecimals), date: bucketDate};*/
         // debug(d[xPosition][1])
+		xPosition *= 2
         val = d[xPosition][1] + 0
         return {value: d[xPosition][1], date: new Date(d[xPosition][0])}
 	}
