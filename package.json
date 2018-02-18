@@ -1,0 +1,26 @@
+{
+  "name": "energy-hacks",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "chart.js": "^2.7.1",
+    "cookie-parser": "~1.4.3",
+    "csv": "^2.0.0",
+    "csv-parse": "^2.0.4",
+    "csv-parser": "^1.12.0",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "formidable": "^1.1.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "lib": "^3.0.1",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5",
+    "should": "^13.2.1"
+  }
+}
