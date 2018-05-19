@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 65px;
+  margin: 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+}
+
+form > div {
+  width: 30%;
+}
+
+.graph-container {
+  /*
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 400px;
+  */
+}
+
+.graph-container div {
+  /*
+  display: inline-block;
+  position: static;
+  */
+}
